@@ -157,7 +157,19 @@ if (messageType == 'imageMessage')
          exec('cwebp -q 50 ' + stiker + ' -o temp/' + jam + '.webp', (error, stdout, stderr) =>
          {
             let stik = fs.readFileSync('temp/' + jam + '.webp')
-            conn.sendMessage(id, stik, MessageType.sticker)
-         });
-      }
-   }
+            conn.sendMessage(id, stik, MessageType.sticker);
+
+};
+
+
+}
+
+
+
+
+
+
+   // end of file
+
+
+})
