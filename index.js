@@ -8,16 +8,6 @@ const fetch = require('node-fetch');
 const urlencode = require("urlencode");
 const axios = require("axios");
 const imageToBase64 = require('image-to-base64');
-const menu = require("./lib/menu.js");
-const donate = require("./lib/donate.js");
-const info = require("./lib/info.js");
-//
-const BotName = 'ApaJa BOT'; // Nama Bot Whatsapp
-const instagramlu = 'https://www.instagram.com/Jokowi/'; // Nama Instagramlu cok
-const whatsapplu = '0813-2807-3545'; // Nomor whatsapplu cok
-const kapanbotaktif = '14 Jam'; // Kapan bot lu aktif
-const grupch1 = 'https://chat.whatsapp.com/FsAlnxqz6y2BhCQi5ayCLG'; // OFFICIAL GRUP LU 1
-const grupch2 = 'https://chat.whatsapp.com/KLW3UlFfeaH36Ucm5zRfCz'; // OFFICIAL GRUP LU 2
 //
 const
 {
@@ -78,25 +68,6 @@ conn.on('message-new', async(m) =>
    const messageType = Object.keys(messageContent)[0] // message will always contain one key signifying what kind of message
    let imageMessage = m.message.imageMessage;
    console.log(`[ ${moment().format("HH:mm:ss")} ] => Nomor: [ ${id.split("@s.whatsapp.net")[0]} ] => ${text}`);
-
-
-// Groups
-
-if (text.includes("!buatgrup"))
-   {
-var nama = text.split("!buatgrup")[1].split("-nomor")[0];
-var nom = text.split("-nomor")[1];
-var numArray = nom.split(",");
-for ( var i = 0; i < numArray.length; i++ ) {
-    numArray[i] = numArray[i] +"@s.whatsapp.net";
-}
-var str = numArray.join("");
-console.log(str)
-const group = await conn.groupCreate (nama, str)
-console.log ("created group with id: " + group.gid)
-conn.sendMessage(group.gid, "hello everyone", MessageType.extendedText) // say hello to everyone on the group
-
-}
 
 // FF
 if(text.includes("!cek")){
